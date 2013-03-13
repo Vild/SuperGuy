@@ -7,9 +7,12 @@
 
 #include <iostream>
 #include <SDL/SDL.h>
+#include"log.h"
+log logc;
 
 int main(int argc, char ** argv) {
-	std::cout << "Hello World!" << std::endl;
+
+	logc.loginfo("Intialized!");
 
 	return 0;
 }
