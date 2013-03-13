@@ -11,6 +11,7 @@ Authors
 -------
 
 Dan "WildN00b" Printzell - Lead developer
+
 "ludkiller" - Lead developer
 
 License
