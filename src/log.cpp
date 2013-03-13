@@ -9,15 +9,19 @@
 #include "log.h"
 #include <iostream>
 
-void log::loginfo(const char *msg) {
+void log::info(const char * msg) {
 	std::cout << "[*] " << msg << std::endl;
 }
 
-void log::logerror(const char*msg) {
+void log::error(const char * msg) {
 	std::cout << "[!] " << msg << std::endl;
 }
 
-log::log() {	
+void log::warning(const char * msg) {
+	std::cout << "[#] " << msg << std::endl;
+}
+
+log::log() {
 }
 
 log::~log() {

@@ -8,12 +8,13 @@
 #ifndef LOG_H_
 #define LOG_H_
 
-#define DEBUG = 1;
 class log {
 
 public:
-	void loginfo(const char *);
-	void logerror(const char *);
+	static void info(const char * msg);
+	static void error(const char * msg);
+	static void warning(const char * msg);
+
 	log();
 	~log();
 

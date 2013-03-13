@@ -7,12 +7,10 @@
 
 #include <iostream>
 #include <SDL/SDL.h>
-#include"log.h"
-log logc;
+#include "log.h"
 
 int main(int argc, char ** argv) {
-
-	logc.loginfo("Intialized!");
+	log::info("Intialized!");
 
 	return 0;
 }
