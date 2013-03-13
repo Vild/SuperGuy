@@ -8,21 +8,21 @@
 #include"log.h""
 #include<iostream>
 
-void log::loginfo(const char *msg)	{
+void log::loginfo(const char *msg) {
 
-	std::cout<<"[*] "<<msg<<std::endl;
+	std::cout << "[*] " << msg << std::endl;
 
 }
 
-void log::logerror(const char*msg)	{
+void log::logerror(const char*msg) {
 
-	std::cout<<"[!] "<<msg<<std::endl;
+	std::cout << "[!] " << msg << std::endl;
 }
 
-log::log()	{
+log::log() {
 	return;
 }
 
-log::~log()	{
+log::~log() {
 	return;
 }
