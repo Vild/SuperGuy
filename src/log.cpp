@@ -1,10 +1,10 @@
-/*
- * log.cpp
- *
- *  Created on: Mar 13, 2013
- *      Author: ludkiller
- *      Author: WildN00b
- */
+/* ============================================================================
+ * Name        : log.cpp
+ * Author(s)   : ludkiller, Dan "WildN00b" Printzell
+ * Copyright   : FreeBSD
+ * Description : Logging class
+ * ============================================================================ */
+
 #include <stdio.h>
 #include "log.h"
 #include <cstdio>
