@@ -11,9 +11,9 @@
 class log {
 
 public:
-	static void info(const char * msg);
-	static void error(const char * msg);
-	static void warning(const char * msg);
+	static void info(const char * msg, ...);
+	static void error(const char * msg, ...);
+	static void warning(const char * msg, ...);
 
 	log();
 	~log();
