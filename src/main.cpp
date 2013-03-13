@@ -1,7 +1,7 @@
 /* ============================================================================
  * Name        : main.cpp
  * Author(s)   : Dan "WildN00b" Printzell
- * Copyright   : GPLv2, i think
+ * Copyright   : FreeBSD
  * Description : 
  * ============================================================================ */
 
