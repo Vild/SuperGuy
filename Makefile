@@ -1,6 +1,6 @@
 .PHONY: all clean linux windows
 
-all: linux windows
+all: linux
 
 clean:
 	+rm -rf bin obj

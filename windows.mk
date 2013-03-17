@@ -1,8 +1,8 @@
 CC := i486-mingw32-gcc
 CPP := i486-mingw32-g++
-CFLAGS := -Wall -Werror -g `/usr/i486-mingw32/bin/sdl-config --cflags` -std=c11
-CPPFLAGS := -Wall -Werror -g `/usr/i486-mingw32/bin/sdl-config --cflags` -std=c++11
-LFLAGS := `/usr/i486-mingw32/bin/sdl-config --libs` -lm -lSDL_image
+CFLAGS := -Wall -Werror -g `/usr/i486-mingw32/bin/sdl2-config --cflags` -std=c11
+CPPFLAGS := -Wall -Werror -g `/usr/i486-mingw32/bin/sdl2-config --cflags` -std=c++11
+LFLAGS := `/usr/i486-mingw32/bin/sdl2-config --libs` -lm -lSDL2_image
  
 OBJ := obj/windows/
 BIN := bin/windows/

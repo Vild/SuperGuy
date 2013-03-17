@@ -6,7 +6,7 @@
  * ============================================================================ */
 
 #include <iostream>
-#include <SDL/SDL.h>
+#include <SDL2/SDL.h>
 #include "log.h"
 
 int main(int argc, char ** argv) {
