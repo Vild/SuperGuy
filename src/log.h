@@ -11,13 +11,15 @@
 class log {
 
 public:
-	static void info(const char * msg, ...);
-	static void error(const char * msg, ...);
-	static void warning(const char * msg, ...);
-
 	log();
 	~log();
 
+	static bool open(const char * file);
+	static void close();
+
+	static void info(const char * msg, ...);
+	static void error(const char * msg, ...);
+	static void warning(const char * msg, ...);
 };
 
 #endif /* LOG_H_ */

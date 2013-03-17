@@ -9,36 +9,87 @@
 #include "log.h"
 #include <cstdio>
 #include <stdarg.h>
+#include <ctime>
+#include <cstring>
 
-void log::info(const char * msg, ...) {
-	va_list va;
-	va_start(va, msg);
-	puts("[*] ");
-	vprintf(msg, va);
-	puts("\n");
-	va_end(va);
-}
+static char buf[80];
+FILE * fp = NULL;
 
-void log::error(const char * msg, ...) {
-	va_list va;
-	va_start(va, msg);
-	puts("[!] ");
-	vprintf(msg, va);
-	puts("\n");
-	va_end(va);
-}
+static char * getTime() {
+	time_t rawtime;
+	struct tm * timeinfo;
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
 
-void log::warning(const char * msg, ...) {
-	va_list va;
-	va_start(va, msg);
-	puts("[#] ");
-	vprintf(msg, va);
-	puts("\n");
-	va_end(va);
+	strftime(buf, 80, "%Ex - %EX", timeinfo);
+	return buf;
 }
 
 log::log() {
 }
 
 log::~log() {
+}
+
+bool log::open(const char * file) {
+	fp = fopen(file, "wa");
+	if (fp == NULL) {
+		error("Failed to open '%s', disregards saving log file.", file);
+		return false;
+	}
+
+	return true;
+}
+
+void log::close() {
+	if (fp) {
+		fclose(fp);
+		fp = NULL;
+	}
+}
+
+void log::info(const char * msg, ...) {
+	char buf[512] = "\0";
+	va_list va;
+
+	va_start(va, msg);
+	sprintf(buf, "%-18s [*] ", getTime());
+	vsprintf(buf + strlen(buf), msg, va);
+	sprintf(buf + strlen(buf), "\n");
+	va_end(va);
+
+	printf(buf);
+	if (fp)
+		fprintf(fp, buf);
+}
+
+void log::error(const char * msg, ...) {
+	char buf[512] = "\0";
+	va_list va;
+
+	va_start(va, msg);
+	sprintf(buf, "%-18s [!] ", getTime());
+	vsprintf(buf + strlen(buf), msg, va);
+	sprintf(buf + strlen(buf), "\n");
+	va_end(va);
+
+	printf(buf);
+	if (fp)
+		fprintf(fp, buf);
+}
+
+void log::warning(const char * msg, ...) {
+	char buf[512] = "\0";
+	va_list va;
+
+	va_start(va, msg);
+
+	sprintf(buf, "%-18s [#] ", getTime());
+	vsprintf(buf + strlen(buf), msg, va);
+	sprintf(buf + strlen(buf), "\n");
+	va_end(va);
+
+	printf(buf);
+	if (fp)
+		fprintf(fp, buf);
 }
