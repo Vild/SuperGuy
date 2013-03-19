@@ -32,8 +32,10 @@ log::~log() {
 }
 
 bool log::open(const char * file) {
-	fp = fopen(file, "wa");
-	if (fp == NULL) {
+	fp = fopen(file, "at");
+	if (!fp)
+		fp = fopen(file, "wt");
+	if (!fp) {
 		error("Failed to open '%s', disregards saving log file.", file);
 		return false;
 	}
@@ -59,8 +61,10 @@ void log::info(const char * msg, ...) {
 	va_end(va);
 
 	printf(buf);
-	if (fp)
+	if (fp) {
 		fprintf(fp, buf);
+		fflush(fp);
+	}
 }
 
 void log::error(const char * msg, ...) {
@@ -74,8 +78,10 @@ void log::error(const char * msg, ...) {
 	va_end(va);
 
 	printf(buf);
-	if (fp)
+	if (fp) {
 		fprintf(fp, buf);
+		fflush(fp);
+	}
 }
 
 void log::warning(const char * msg, ...) {
@@ -90,6 +96,8 @@ void log::warning(const char * msg, ...) {
 	va_end(va);
 
 	printf(buf);
-	if (fp)
+	if (fp) {
 		fprintf(fp, buf);
+		fflush(fp);
+	}
 }
