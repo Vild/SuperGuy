@@ -7,29 +7,32 @@
 
 #include "texture.h"
 #include "../log.h"
-#include <SDL/SDL.h>
-#include <SDL/SDL_image.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 #include <cmath>
 
-SDL_Surface * loadImage(const char * file) {
+SDL_Surface * texture::loadImage(const char * file) {
 	SDL_Surface * loadedImage = NULL;
-	SDL_Surface * optimizedImage = NULL;
+	//SDL_Surface * optimizedImage = NULL;
 
 	loadedImage = IMG_Load(file);
 
-	if (loadedImage != NULL) {
-		optimizedImage = SDL_DisplayFormatAlpha(loadedImage);
+	// TODO: Add optimization, SDL2 doesn't have SDL_DisplayFormat
+	/*if (loadedImage != NULL) {
 
-		SDL_FreeSurface(loadedImage);
+	 //optimizedImage = SDL_DisplayFormat(loadedImage);
 
-		if (optimizedImage != NULL)
-			SDL_SetColorKey(optimizedImage, SDL_SRCCOLORKEY,
-					SDL_MapRGB(optimizedImage->format, 0, 0xFF, 0xFF));
-	}
-	return optimizedImage;
+	 SDL_FreeSurface(loadedImage);
+
+	 if (optimizedImage != NULL)
+	 SDL_SetColorKey(optimizedImage, SDL_TRUE,
+	 SDL_MapRGB(optimizedImage->format, 0, 0xFF, 0xFF));
+	 }*/
+	return loadedImage;
 }
 
-texture::texture(const char * file, int count) {
+texture::texture(SDL_Renderer * render, const char * file, int count) {
+	this->render = render;
 	this->tex = loadImage(file);
 	if (this->tex == NULL)
 		log::error("Couldn't load \"%s\"", file);
@@ -38,16 +41,18 @@ texture::texture(const char * file, int count) {
 	this->size.w = this->tex->w;
 	this->size.x = 0;
 	this->size.y = 0;
-
+	this->retTex = NULL;
 }
 
-texture::texture(SDL_Surface * tex) {
-	this->tex = tex;
+texture::texture(SDL_Renderer * render, SDL_Surface * surface) {
+	this->render = render;
+	this->tex = surface;
 	this->countPerRow = 1;
-	this->size.h = tex->h;
-	this->size.w = tex->w;
+	this->size.h = surface->h;
+	this->size.w = surface->w;
 	this->size.x = 0;
 	this->size.y = 0;
+	this->retTex = NULL;
 }
 
 texture::~texture() {
@@ -56,35 +61,38 @@ texture::~texture() {
 
 texture * texture::getTextureAtPos(int pos) {
 	const int size = this->size.h / this->countPerRow;
-	const SDL_PixelFormat * format = SDL_GetVideoSurface()->format;
+	const SDL_PixelFormat * format = this->tex->format;
+	SDL_Rect srcPos;
+	SDL_Rect destPos;
 	SDL_Surface * newtex = SDL_CreateRGBSurface(SDL_SWSURFACE, size, size,
 			format->BitsPerPixel, format->Rmask, format->Gmask, format->Bmask,
 			format->Amask);
-	SDL_Rect destPos;
+
+	srcPos.x = pos % countPerRow;
+	srcPos.y = pos / countPerRow;
+	srcPos.w = size;
+	srcPos.h = size;
 	destPos.x = 0;
 	destPos.y = 0;
 	destPos.w = size;
 	destPos.h = size;
-	SDL_Rect srcPost;
-	srcPost.x = pos % countPerRow;
-	srcPost.y = pos / countPerRow;
-	srcPost.w = size;
-	srcPost.h = size;
 
 	if (newtex == NULL) {
 		log::error("Failed to get texture at pos \"%i\"", pos);
 		return NULL;
 	}
 
-	if (SDL_BlitSurface(this->getSurface(), &srcPost, newtex, &destPos) != 0) {
+	if (SDL_BlitSurface(this->tex, &srcPos, newtex, &destPos) != 0) {
 		log::error("Failed blit texture at pos \"%i\"", pos);
 		return NULL;
 	}
 
-	return new texture(newtex);
+	return new texture(this->render, newtex);
 }
 
-SDL_Surface * texture::getSurface() {
-	return this->tex;
+SDL_Texture * texture::getTexture() {
+	if (retTex == NULL)
+		retTex = SDL_CreateTextureFromSurface(this->render, this->tex);
+	return retTex;
 }
 
