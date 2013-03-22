@@ -1,8 +1,8 @@
 /* ============================================================================
  * Name        : dvar.cpp
  * Author(s)   : Dan "WildN00b" Printzell
- * Copyright   : GPLv2, i think
- * Description : 
+ * Copyright   : FreeBSD
+ * Description : Class for the dvars
  * ============================================================================ */
 
 #include "dvar.h"

@@ -1,8 +1,8 @@
 /* ============================================================================
  * Name        : dvarManager.cpp
  * Author(s)   : Dan "WildN00b" Printzell
- * Copyright   : GPLv2, i think
- * Description : 
+ * Copyright   : FreeBSD
+ * Description : A manager for dvars
  * ============================================================================ */
 
 #include "dvarManager.h"
