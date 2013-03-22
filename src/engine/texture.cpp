@@ -31,8 +31,7 @@ SDL_Surface * texture::loadImage(const char * file) {
 	return loadedImage;
 }
 
-texture::texture(SDL_Renderer * render, const char * file, int count) {
-	this->render = render;
+texture::texture(const char * file, int count) {
 	this->tex = loadImage(file);
 	if (this->tex == NULL)
 		log::error("Couldn't load \"%s\"", file);
@@ -41,18 +40,15 @@ texture::texture(SDL_Renderer * render, const char * file, int count) {
 	this->size.w = this->tex->w;
 	this->size.x = 0;
 	this->size.y = 0;
-	this->retTex = NULL;
 }
 
-texture::texture(SDL_Renderer * render, SDL_Surface * surface) {
-	this->render = render;
+texture::texture(SDL_Surface * surface) {
 	this->tex = surface;
 	this->countPerRow = 1;
 	this->size.h = surface->h;
 	this->size.w = surface->w;
 	this->size.x = 0;
 	this->size.y = 0;
-	this->retTex = NULL;
 }
 
 texture::~texture() {
@@ -87,12 +83,9 @@ texture * texture::getTextureAtPos(int pos) {
 		return NULL;
 	}
 
-	return new texture(this->render, newtex);
+	return new texture(newtex);
 }
 
-SDL_Texture * texture::getTexture() {
-	if (retTex == NULL)
-		retTex = SDL_CreateTextureFromSurface(this->render, this->tex);
-	return retTex;
+SDL_Surface * texture::getTexture() {
+	return this->tex;
 }
-
