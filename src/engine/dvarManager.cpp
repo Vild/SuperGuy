@@ -6,6 +6,7 @@
  * ============================================================================ */
 
 #include "dvarManager.h"
+#include "../log.h"
 
 void dvarManager::load(const char* file) {
 	FILE * fp = fopen(file, "rt");
@@ -13,8 +14,6 @@ void dvarManager::load(const char* file) {
 		log::error("Couldn't load dvar file, reverting to standard dvars.");
 		return;
 	}
-
-
 
 	fclose(fp);
 }
@@ -32,14 +31,14 @@ dvarManager::~dvarManager() {
 }
 
 void dvarManager::registerDvar(dvar * dvar) {
-	removeDvar(dvar->name);
+	removeDvar(dvar->getName());
 	this->dvarList->push_back(dvar);
 }
 
 bool dvarManager::removeDvar(const char * name) {
 	boost::ptr_list<dvar>::iterator it;
 	for (it = this->dvarList->begin(); it != this->dvarList->end(); it++) {
-		if (strcmp(name, it->name) == 0) {
+		if (strcmp(name, it->getName()) == 0) {
 			this->dvarList->erase(it);
 			return true;
 		}
@@ -50,8 +49,8 @@ bool dvarManager::removeDvar(const char * name) {
 dvar * dvarManager::GetDvar(const char * name) {
 	boost::ptr_list<dvar>::iterator it;
 	for (it = this->dvarList->begin(); it != this->dvarList->end(); it++) {
-		if (strcmp(name, it->name) == 0)
-			return it;
+		if (strcmp(name, it->getName()) == 0)
+			return static_cast<dvar *>(*it.base());
 	}
 	return NULL;
 }
