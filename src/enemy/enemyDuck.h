@@ -22,5 +22,4 @@ public:
 
 };
 
-
 #endif /* ENEMY_DUCK_H_ */
