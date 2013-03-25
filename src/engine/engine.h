@@ -9,6 +9,8 @@
 #define ENGINE_H_
 
 #include <SDL2/SDL.h>
+#include "dvar.h"
+#include "dvarManager.h"
 
 class engine {
 public:
@@ -18,6 +20,9 @@ public:
 private:
 	SDL_Window * window;
 	SDL_Renderer * renderer;
+	dvarManager * dvarMgr;
+
+	dvar * cheats;
 
 	void init_sdl();
 };

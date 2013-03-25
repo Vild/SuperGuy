@@ -34,10 +34,14 @@ void engine::init_sdl() {
 engine::engine() {
 	log::info("Initalizing SuperGuy...");
 	init_sdl();
+	dvarMgr = new dvarManager("dvar.cfg");
+	cheats = dvarMgr->registerDvar(
+			new dvar("cheats", "Enables cheats", DVAR_FLAG_ARCHIVED, true));
 	log::info("Initialized SuperGuy successfully!");
 }
 
 engine::~engine() {
+	delete dvarMgr;
 	if (renderer)
 		SDL_DestroyRenderer(renderer);
 	if (window)
