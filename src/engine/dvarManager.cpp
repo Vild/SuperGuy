@@ -66,8 +66,8 @@ void dvarManager::load(std::string file) {
 				stmp += s.at(i);
 			registerDvar(
 					new dvar(s.at(1).c_str(), "",
-							DVAR_FLAG_USERCREATED | DVAR_FLAG_ARCHIVED,
-							stmp), true);
+							DVAR_FLAG_USERCREATED | DVAR_FLAG_ARCHIVED, stmp),
+					true);
 		} else if (s.at(0) == "double")
 			registerDvar(
 					new dvar(s.at(1).c_str(), "",
