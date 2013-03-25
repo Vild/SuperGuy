@@ -9,22 +9,25 @@
 #define DVARMANAGER_H_
 
 #include "dvar.h"
-#include <boost/ptr_container/ptr_list.hpp>
+#include <map>
+#include <string>
 
 class dvarManager {
 public:
-	dvarManager(const char * file);
+	dvarManager(std::string file);
 	~dvarManager();
 
-	void registerDvar(dvar * dvar);
-	bool removeDvar(const char * name);
-	dvar * GetDvar(const char * name);
+	dvar * registerDvar(dvar * var);
+	void removeDvar(std::string name);
+	dvar * getDvar(std::string name);
 
 private:
-	boost::ptr_list<dvar> * dvarList;
-	const char * file;
+	std::map<std::string, dvar *> * dvarList;
+	std::string file;
 
-	void load(const char* file);
+	void load(std::string file);
+	void save(std::string file);
+	dvar * registerDvar(dvar * var, bool load);
 };
 
 #endif /* DVARMANAGER_H_ */
