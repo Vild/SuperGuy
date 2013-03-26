@@ -11,18 +11,17 @@
 #include "engine/engine.h"
 
 int main(int argc, char ** argv) {
-	engine * eng = NULL;
 	log::open("log.txt");
 
 	try {
-		eng = new engine();
+		engineInstance = new engine();
 
 		SDL_Delay(5 * 1000);
 
-		delete eng;
+		delete engineInstance;
 	} catch (std::exception * e) {
-		if (eng) // Checks if eng isn't NULL
-			delete eng;
+		if (engineInstance) // Checks if eng isn't NULL
+			delete engineInstance;
 		log::error("Engine crashed!");
 	}
 

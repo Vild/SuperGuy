@@ -12,15 +12,17 @@
 #include "dvar.h"
 #include "dvarManager.h"
 
+engine * engineInstance;
+
 class engine {
 public:
 	engine();
 	~engine();
 
+	dvarManager * dvarMgr;
 private:
 	SDL_Window * window;
 	SDL_Renderer * renderer;
-	dvarManager * dvarMgr;
 
 	dvar * cheats;
 

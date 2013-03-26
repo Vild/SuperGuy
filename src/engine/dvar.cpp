@@ -82,10 +82,15 @@ void dvar::setDefValue(dvar_value_t defValue) {
 }
 
 void dvar::setValue(dvar_value_t value) {
+	dvar * cheats = engineInstance->dvarMgr->getDvar("cheats");
 	if (this->flags & DVAR_FLAG_READONLY) // Checks if the dvar have the ReadOnly flag
 		log::warning("Can't write to read only dvar '%s'", this->name.c_str());
 	else if (this->flags & DVAR_FLAG_WRITEPROTECTED) // Checks if the dvar have the WriteProtected flag
 		log::warning("Can't write to write protected dvar '%s'",
+				this->name.c_str());
+	else if ((this->flags & DVAR_FLAG_CHEAT)
+			&& ((cheats && cheats->getValue()) || !cheats)) // Checks if the dvar have the Cheat flag and if so, checks the cheats dvar is true.
+		log::warning("Can't write to cheat protected dvar '%s'",
 				this->name.c_str());
 	else
 		this->value = value;
