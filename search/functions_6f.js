@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['open',['open',['../classlog.html#ab0d99a8357cae3f0b5dfa3435b2a4fc1',1,'log']]]
+  ['open',['open',['../classlog.html#a9087af1e97fdee55873ab7c9dc857ef1',1,'log']]]
 ];

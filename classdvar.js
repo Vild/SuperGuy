@@ -13,5 +13,5 @@ var classdvar =
     [ "setDefValue", "classdvar.html#a7cbced87f4217b4139f0e54712a486f8", null ],
     [ "setDesc", "classdvar.html#aa930d43b56efe8bd658f504db2ce44f7", null ],
     [ "setFlags", "classdvar.html#a2ae1c8e19e5cdac48049d18878d0c349", null ],
-    [ "setValue", "classdvar.html#ad9c42dfbc70474b20986647c0b7fff8f", null ]
+    [ "setValue", "classdvar.html#aa12fac52e759541825c02079eec12d26", null ]
 ];

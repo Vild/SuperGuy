@@ -149,9 +149,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7cbced87f4217b4139f0e54712a486f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvar.html#a7cbced87f4217b4139f0e54712a486f8">setDefValue</a> (dvar_value_t defValue)</td></tr>
 <tr class="memdesc:a7cbced87f4217b4139f0e54712a486f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default value of the dvar.  <a href="#a7cbced87f4217b4139f0e54712a486f8">More...</a><br/></td></tr>
 <tr class="separator:a7cbced87f4217b4139f0e54712a486f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9c42dfbc70474b20986647c0b7fff8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvar.html#ad9c42dfbc70474b20986647c0b7fff8f">setValue</a> (dvar_value_t value)</td></tr>
-<tr class="memdesc:ad9c42dfbc70474b20986647c0b7fff8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the dvar.  <a href="#ad9c42dfbc70474b20986647c0b7fff8f">More...</a><br/></td></tr>
-<tr class="separator:ad9c42dfbc70474b20986647c0b7fff8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12fac52e759541825c02079eec12d26"><td class="memItemLeft" align="right" valign="top">dvar_flag_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdvar.html#aa12fac52e759541825c02079eec12d26">setValue</a> (dvar_value_t value)</td></tr>
+<tr class="memdesc:aa12fac52e759541825c02079eec12d26"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the value of the dvar and returns DVAR_FLAG_NONE if it succeeded else it return the flag that stopped it.  <a href="#aa12fac52e759541825c02079eec12d26">More...</a><br/></td></tr>
+<tr class="separator:aa12fac52e759541825c02079eec12d26"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a416153f76f70f791709f98ca33427d8a"></a>
@@ -513,12 +513,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad9c42dfbc70474b20986647c0b7fff8f"></a>
+<a class="anchor" id="aa12fac52e759541825c02079eec12d26"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void dvar::setValue </td>
+          <td class="memname">dvar_flag_t dvar::setValue </td>
           <td>(</td>
           <td class="paramtype">dvar_value_t&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -527,13 +527,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the value of the dvar. </p>
+<p>Sets the value of the dvar and returns DVAR_FLAG_NONE if it succeeded else it return the flag that stopped it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">value</td><td>The value. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>The flag that stopped it or DVAR_FLAG_NONE if it succeeded. </dd></dl>
 
 </div>
 </div>
@@ -547,7 +548,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="classdvar.html">dvar</a></li>
-    <li class="footer">Generated on Tue Mar 26 2013 19:43:31 for SuperGuy by
+    <li class="footer">Generated on Tue Mar 26 2013 20:31:36 for SuperGuy by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
   </ul>
