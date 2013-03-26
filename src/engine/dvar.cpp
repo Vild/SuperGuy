@@ -81,17 +81,22 @@ void dvar::setDefValue(dvar_value_t defValue) {
 	this->defValue = defValue;
 }
 
-void dvar::setValue(dvar_value_t value) {
+dvar_flag_t dvar::setValue(dvar_value_t value) {
 	dvar * cheats = engineInstance->dvarMgr->getDvar("cheats");
-	if (this->flags & DVAR_FLAG_READONLY) // Checks if the dvar have the ReadOnly flag
+	if (this->flags & DVAR_FLAG_READONLY) { // Checks if the dvar have the ReadOnly flag
 		log::warning("Can't write to read only dvar '%s'", this->name.c_str());
-	else if (this->flags & DVAR_FLAG_WRITEPROTECTED) // Checks if the dvar have the WriteProtected flag
+		return DVAR_FLAG_READONLY;
+	} else if (this->flags & DVAR_FLAG_WRITEPROTECTED) { // Checks if the dvar have the WriteProtected flag
 		log::warning("Can't write to write protected dvar '%s'",
 				this->name.c_str());
-	else if ((this->flags & DVAR_FLAG_CHEAT)
-			&& ((cheats && cheats->getValue()) || !cheats)) // Checks if the dvar have the Cheat flag and if so, checks the cheats dvar is true.
+		return DVAR_FLAG_WRITEPROTECTED;
+	} else if ((this->flags & DVAR_FLAG_CHEAT) // Checks if the dvar have the Cheat flag and if so, checks the cheats dvar is true.
+	&& ((cheats && cheats->getValue()) || !cheats)) {
 		log::warning("Can't write to cheat protected dvar '%s'",
 				this->name.c_str());
-	else
+		return DVAR_FLAG_CHEAT;
+	} else {
 		this->value = value;
+		return DVAR_FLAG_NONE;
+	}
 }

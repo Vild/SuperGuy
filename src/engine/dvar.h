@@ -93,10 +93,11 @@ public:
 	 \param defValue The default value.
 	 */
 	void setDefValue(dvar_value_t defValue);
-	/*! \brief Sets the value of the dvar.
+	/*! \brief Sets the value of the dvar and returns DVAR_FLAG_NONE if it succeeded else it return the flag that stopped it.
 	 \param value The value.
+	 \return The flag that stopped it or DVAR_FLAG_NONE if it succeeded.
 	 */
-	void setValue(dvar_value_t value);
+	dvar_flag_t setValue(dvar_value_t value);
 private:
 	std::string name;
 	std::string desc;
