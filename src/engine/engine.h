@@ -12,8 +12,6 @@
 #include "dvar.h"
 #include "dvarManager.h"
 
-engine * engineInstance;
-
 class engine {
 public:
 	engine();
@@ -28,5 +26,7 @@ private:
 
 	void init_sdl();
 };
+
+extern engine * engineInstance;
 
 #endif /* ENGINE_H_ */

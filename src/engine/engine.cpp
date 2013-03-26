@@ -8,6 +8,9 @@
 #include <iostream>
 #include "engine.h"
 #include "../log.h"
+#include <SDL2/SDL_image.h>
+
+engine * engineInstance;
 
 void engine::init_sdl() {
 	int ret = 0;
