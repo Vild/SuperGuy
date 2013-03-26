@@ -9,43 +9,46 @@
 #include <cstdlib>
 #include "../log.h"
 
-dvar::dvar(std::string name, std::string desc, dvar_flag_t flag, int64_t Int) {
+// The constructors for the dvar, does the same for each one, sets the name, descriptions, flags, value and default value.
+dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, int64_t Int) {
 	this->name = name;
 	this->desc = desc;
-	this->flag = flag;
+	this->flags = flags;
 	this->value = Int;
 	this->defValue = Int;
 }
 
-dvar::dvar(std::string name, std::string desc, dvar_flag_t flag,
+dvar::dvar(std::string name, std::string desc, dvar_flag_t flags,
 		std::string String) {
 	this->name = name;
 	this->desc = desc;
-	this->flag = flag;
+	this->flags = flags;
 	this->value = String;
 	this->defValue = String;
 }
 
-dvar::dvar(std::string name, std::string desc, dvar_flag_t flag,
+dvar::dvar(std::string name, std::string desc, dvar_flag_t flags,
 		double Double) {
 	this->name = name;
 	this->desc = desc;
-	this->flag = flag;
+	this->flags = flags;
 	this->value = Double;
 	this->defValue = Double;
 }
 
-dvar::dvar(std::string name, std::string desc, dvar_flag_t flag, bool Bool) {
+dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, bool Bool) {
 	this->name = name;
 	this->desc = desc;
-	this->flag = flag;
+	this->flags = flags;
 	this->value = Bool;
 	this->defValue = Bool;
 }
 
 dvar::~dvar() {
+	// Don't have to do a thing, C++ does this for us.
 }
 
+// Self explanatory
 std::string dvar::getName() {
 	return this->name;
 }
@@ -54,8 +57,8 @@ std::string dvar::getDesc() {
 	return this->desc;
 }
 
-dvar_flag_t dvar::getFlag() {
-	return this->flag;
+dvar_flag_t dvar::getFlags() {
+	return this->flags;
 }
 
 dvar_value_t dvar::getDefValue() {
@@ -70,8 +73,8 @@ void dvar::setDesc(std::string desc) {
 	this->desc = desc;
 }
 
-void dvar::setFlag(dvar_flag_t flag) {
-	this->flag = flag;
+void dvar::setFlags(dvar_flag_t flag) {
+	this->flags = flag;
 }
 
 void dvar::setDefValue(dvar_value_t defValue) {
@@ -79,9 +82,9 @@ void dvar::setDefValue(dvar_value_t defValue) {
 }
 
 void dvar::setValue(dvar_value_t value) {
-	if (this->flag & DVAR_FLAG_READONLY)
+	if (this->flags & DVAR_FLAG_READONLY) // Checks if the dvar have the ReadOnly flag
 		log::warning("Can't write to read only dvar '%s'", this->name.c_str());
-	else if (this->flag & DVAR_FLAG_WRITEPROTECTED)
+	else if (this->flags & DVAR_FLAG_WRITEPROTECTED) // Checks if the dvar have the WriteProtected flag
 		log::warning("Can't write to write protected dvar '%s'",
 				this->name.c_str());
 	else

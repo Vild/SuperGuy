@@ -14,11 +14,25 @@
 
 class dvarManager {
 public:
+	/*! \brief Creates a new dvar manager and loads the file \a file.
+	 \param file The file which it will read and save the dvars too.
+	 */
 	dvarManager(std::string file);
 	~dvarManager();
 
+	/*! \brief Registers a new dvar or updates the description, flags and default value.
+	 \param var The new dvar.
+	 \return The registered dvar.
+	 */
 	dvar * registerDvar(dvar * var);
+	/*! \brief Removes the dvar named \a name.
+	 \param name The dvar name.
+	 */
 	void removeDvar(std::string name);
+	/*! \brief Gets the dvar named \a name
+	 \param name The dvar name.
+	 \return The dvar or NULL if it couldn't find it.
+	 */
 	dvar * getDvar(std::string name);
 
 private:

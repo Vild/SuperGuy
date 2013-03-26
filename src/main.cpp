@@ -21,7 +21,7 @@ int main(int argc, char ** argv) {
 
 		delete eng;
 	} catch (std::exception * e) {
-		if (eng)
+		if (eng) // Checks if eng isn't NULL
 			delete eng;
 		log::error("Engine crashed!");
 	}
