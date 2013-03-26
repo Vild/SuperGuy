@@ -34,6 +34,12 @@ void engine::init_sdl() {
 		log::error("Couldn't load SDL2! SDL_CreateRenderer returned NULL");
 		throw new std::exception();
 	}
+
+	if (!IMG_Init(IMG_INIT_PNG)) {
+		log::error("Couldn't init SDL2_image!");
+		throw new std::exception();
+	}
+
 	log::info("Initialized SDL2 successfully!");
 }
 
