@@ -40,7 +40,7 @@ bool log::open(std::string file) {
 	if (!fp) // If the file didn't exist
 		fp = fopen(file.c_str(), "wt"); // Open it as writing and text.
 	if (!fp) {
-		error("Failed to open '%s', disregards saving log file.", file);
+		error("Failed to open '%s', disregards saving log file.", file.c_str());
 		return false;
 	}
 
