@@ -34,13 +34,13 @@ log::log() {
 log::~log() {
 }
 
-bool log::open(std::string file) {
+bool log::open(const char * file) {
 	// Opens the file for writing. With the flags appending and text.
-	fp = fopen(file.c_str(), "at");
+	fp = fopen(file, "at");
 	if (!fp) // If the file didn't exist
-		fp = fopen(file.c_str(), "wt"); // Open it as writing and text.
+		fp = fopen(file, "wt"); // Open it as writing and text.
 	if (!fp) {
-		error("Failed to open '%s', disregards saving log file.", file.c_str());
+		error("Failed to open '%s', disregards saving log file.", file);
 		return false;
 	}
 
@@ -54,7 +54,7 @@ void log::close() {
 	}
 }
 
-void log::info(std::string msg, ...) {
+void log::info(const char * msg, ...) {
 	char buf[512] = "\0";
 	va_list va;
 
@@ -63,7 +63,7 @@ void log::info(std::string msg, ...) {
 	// Write the date and time to the buffer
 	sprintf(buf, "%-18s [*] ", getTime());
 	// Write the message with the va_args and add a new line to the buffer
-	vsprintf(buf + strlen(buf), msg.c_str(), va);
+	vsprintf(buf + strlen(buf), msg, va);
 	sprintf(buf + strlen(buf), "\n");
 	va_end(va);
 
@@ -75,7 +75,7 @@ void log::info(std::string msg, ...) {
 	}
 }
 
-void log::error(std::string msg, ...) {
+void log::error(const char * msg, ...) {
 	char buf[512] = "\0";
 	va_list va;
 
@@ -84,7 +84,7 @@ void log::error(std::string msg, ...) {
 	// Write the date and time to the buffer
 	sprintf(buf, "%-18s [!] ", getTime());
 	// Write the message with the va_args and add a new line to the buffer
-	vsprintf(buf + strlen(buf), msg.c_str(), va);
+	vsprintf(buf + strlen(buf), msg, va);
 	sprintf(buf + strlen(buf), "\n");
 	va_end(va);
 
@@ -96,7 +96,7 @@ void log::error(std::string msg, ...) {
 	}
 }
 
-void log::warning(std::string msg, ...) {
+void log::warning(const char * msg, ...) {
 	char buf[512] = "\0";
 	va_list va;
 
@@ -105,7 +105,7 @@ void log::warning(std::string msg, ...) {
 	// Write the date and time to the buffer
 	sprintf(buf, "%-18s [#] ", getTime());
 	// Write the message with the va_args and add a new line to the buffer
-	vsprintf(buf + strlen(buf), msg.c_str(), va);
+	vsprintf(buf + strlen(buf), msg, va);
 	sprintf(buf + strlen(buf), "\n");
 	va_end(va);
 
