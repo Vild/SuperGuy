@@ -9,8 +9,7 @@
 #define ENGINE_H_
 
 #include <SDL2/SDL.h>
-#include "dvar.h"
-#include "dvarManager.h"
+#include "data/dvarManager.h"
 #include "state/stateMachine.h"
 
 class engine {

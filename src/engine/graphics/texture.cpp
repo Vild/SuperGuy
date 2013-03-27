@@ -6,7 +6,7 @@
  * ============================================================================ */
 
 #include "texture.h"
-#include "../log.h"
+#include "../../log.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <cmath>

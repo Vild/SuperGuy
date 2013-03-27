@@ -7,8 +7,8 @@
 
 #include "dvar.h"
 #include <cstdlib>
-#include "../log.h"
-#include "engine.h"
+#include "../../log.h"
+#include "../engine.h"
 
 // The constructors for the dvar, does the same for each one, sets the name, descriptions, flags, value and default value.
 dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, int64_t Int) {
