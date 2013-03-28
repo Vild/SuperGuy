@@ -38,7 +38,7 @@ void engine::init_sdl() {
 		throw new std::exception();
 	}
 
-	if (!IMG_Init(IMG_INIT_PNG)) {
+	if (IMG_Init(IMG_INIT_PNG)) {
 		log::error("Couldn't init SDL2_image!");
 		throw new std::exception();
 	}
