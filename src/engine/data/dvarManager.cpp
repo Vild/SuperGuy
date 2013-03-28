@@ -65,7 +65,7 @@ void dvarManager::load(std::string file) {
 			registerDvar(
 					new dvar(splitLine.at(1).c_str(), "",
 							DVAR_FLAG_USERCREATED | DVAR_FLAG_ARCHIVED,
-							atol(splitLine.at(2).c_str())), true); // atol because int type is a int64_t
+							(int64_t)atoll(splitLine.at(2).c_str())), true); // atol because int type is a int64_t
 		else if (splitLine.at(0) == "string") {
 			// Loop through all the left entries in the vector which will be the string.
 			for (i = 2; i < splitLine.size(); i++)
