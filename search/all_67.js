@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['gameoverstate',['gameOverState',['../classgameOverState.html',1,'']]],
   ['getdefvalue',['getDefValue',['../classdvar.html#a8254f32e9b4584de927129f2638f4cd5',1,'dvar']]],
   ['getdesc',['getDesc',['../classdvar.html#af088a6342e17df5bfa882ba245b5182d',1,'dvar']]],
   ['getdvar',['getDvar',['../classdvarManager.html#adef25895ede1def129af8f1b75dcfc86',1,'dvarManager']]],
