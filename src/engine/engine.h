@@ -10,7 +10,7 @@
 
 #include <SDL2/SDL.h>
 #include "data/dvarManager.h"
-#include "state/stateMachine.h"
+#include "state/state.h"
 
 class engine {
 public:

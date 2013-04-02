@@ -7,10 +7,22 @@
 
 #include "state.h"
 
-state() {
+state::state() {
 
 }
 
-~state() {
+state::~state() {
 
+}
+
+void state::onEvent(SDL_Event event) {
+
+}
+
+void state::onUpdate() {
+
+}
+
+SDL_Texture * state::onRender() {
+	return NULL;
 }

@@ -9,7 +9,6 @@
 #include "../../log.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-#include <cmath>
 
 SDL_Surface * texture::loadImage(const char * file) {
 	// Return the loaded image.

@@ -6,7 +6,6 @@
  * ============================================================================ */
 
 #include "dvar.h"
-#include <cstdlib>
 #include "../../log.h"
 #include "../engine.h"
 

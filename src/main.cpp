@@ -5,7 +5,6 @@
  * Description : 
  * ============================================================================ */
 
-#include <iostream>
 #include <SDL2/SDL.h>
 #include "log.h"
 #include "engine/engine.h"
