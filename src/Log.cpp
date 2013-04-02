@@ -1,12 +1,12 @@
 /* ============================================================================
- * Name        : log.cpp
+ * Name        : Log.cpp
  * Author(s)   : ludkiller, Dan "WildN00b" Printzell
  * Copyright   : FreeBSD
  * Description : Logging class
  * ============================================================================ */
 
 #include <stdio.h>
-#include "log.h"
+#include "Log.h"
 #include <cstdio>
 #include <stdarg.h>
 #include <ctime>
@@ -28,33 +28,33 @@ static char * getTime() {
 }
 
 // Not using the constructor and deconstructor because the class is used in a statically way.
-log::log() {
+Log::Log() {
 }
 
-log::~log() {
+Log::~Log() {
 }
 
-bool log::open(const char * file) {
+bool Log::Open(const char * file) {
 	// Opens the file for writing. With the flags appending and text.
 	fp = fopen(file, "at");
 	if (!fp) // If the file didn't exist
 		fp = fopen(file, "wt"); // Open it as writing and text.
 	if (!fp) {
-		error("Failed to open '%s', disregards saving log file.", file);
+		Error("Failed to open '%s', disregards saving log file.", file);
 		return false;
 	}
 
 	return true;
 }
 
-void log::close() {
+void Log::Close() {
 	if (fp) { // If fp isn't NULL
 		fclose(fp);
 		fp = NULL;
 	}
 }
 
-void log::info(const char * msg, ...) {
+void Log::Info(const char * msg, ...) {
 	char buf[512] = "\0";
 	va_list va;
 
@@ -75,7 +75,7 @@ void log::info(const char * msg, ...) {
 	}
 }
 
-void log::error(const char * msg, ...) {
+void Log::Error(const char * msg, ...) {
 	char buf[512] = "\0";
 	va_list va;
 
@@ -96,7 +96,7 @@ void log::error(const char * msg, ...) {
 	}
 }
 
-void log::warning(const char * msg, ...) {
+void Log::Warning(const char * msg, ...) {
 	char buf[512] = "\0";
 	va_list va;
 

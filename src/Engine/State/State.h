@@ -1,5 +1,5 @@
 /* ============================================================================
- * Name        : state.h
+ * Name        : State.h
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : FreeBSD
  * Description : 
@@ -9,13 +9,13 @@
 #define STATE_H_
 #include <SDL2/SDL.h>
 
-class state {
+class State {
 public:
-	state();
-	virtual ~state();
-	virtual void onEvent(SDL_Event event);
-	virtual void onUpdate();
-	virtual SDL_Texture * onRender();
+	State();
+	virtual ~State();
+	virtual void OnEvent(SDL_Event event);
+	virtual void OnUpdate();
+	virtual SDL_Texture * OnRender();
 };
 
 #endif /* STATE_H_ */

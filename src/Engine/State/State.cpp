@@ -1,28 +1,28 @@
 /* ============================================================================
- * Name        : state.cpp
+ * Name        : State.cpp
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : FreeBSD
  * Description : 
  * ============================================================================ */
 
-#include "state.h"
+#include "State.h"
 
-state::state() {
-
-}
-
-state::~state() {
+State::State() {
 
 }
 
-void state::onEvent(SDL_Event event) {
+State::~State() {
 
 }
 
-void state::onUpdate() {
+void State::OnEvent(SDL_Event event) {
 
 }
 
-SDL_Texture * state::onRender() {
+void State::OnUpdate() {
+
+}
+
+SDL_Texture * State::OnRender() {
 	return NULL;
 }

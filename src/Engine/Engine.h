@@ -1,5 +1,5 @@
 /* ============================================================================
- * Name        : engine.h
+ * Name        : Engine.h
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : GPLv2, i think
  * Description : 
@@ -9,26 +9,28 @@
 #define ENGINE_H_
 
 #include <SDL2/SDL.h>
-#include "data/dvarManager.h"
-#include "state/state.h"
+#include "Data/DvarManager.h"
+#include "State/State.h"
 
-class engine {
+class Engine {
 public:
-	engine();
-	~engine();
+	Engine();
+	~Engine();
 
-	dvarManager * dvarMgr;
+	void Run();
+
+	DvarManager * DvarMgr;
 private:
-	SDL_Window * window;
-	SDL_Renderer * renderer;
+	SDL_Window * Window;
+	SDL_Renderer * Renderer;
 
-	dvar * cheats;
+	Dvar * Cheats;
 
-	state * currentState;
+	State * CurrentState;
 
-	void init_sdl();
+	void InitSDL();
 };
 
-extern engine * engineInstance;
+extern Engine * EngineInstance;
 
 #endif /* ENGINE_H_ */

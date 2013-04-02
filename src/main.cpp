@@ -6,24 +6,24 @@
  * ============================================================================ */
 
 #include <SDL2/SDL.h>
-#include "log.h"
-#include "engine/engine.h"
+#include "Log.h"
+#include "Engine/Engine.h"
 
 int main(int argc, char ** argv) {
-	log::open("log.txt");
+	Log::Open("log.txt");
 
 	try {
-		engineInstance = new engine();
+		EngineInstance = new Engine();
 
 		SDL_Delay(5 * 1000);
 
-		delete engineInstance;
+		delete EngineInstance;
 	} catch (std::exception * e) {
-		if (engineInstance) // Checks if eng isn't NULL
-			delete engineInstance;
-		log::error("Engine crashed!");
+		if (EngineInstance) // Checks if eng isn't NULL
+			delete EngineInstance;
+		Log::Error("Engine crashed!");
 	}
 
-	log::close();
+	Log::Close();
 	return 0;
 }

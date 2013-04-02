@@ -1,5 +1,5 @@
 /* ============================================================================
- * Name        : dvarManager.h
+ * Name        : DvarManager.h
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : FreeBSD
  * Description : A manager for dvars
@@ -8,40 +8,40 @@
 #ifndef DVARMANAGER_H_
 #define DVARMANAGER_H_
 
-#include "dvar.h"
+#include "Dvar.h"
 #include <map>
 #include <string>
 
-class dvarManager {
+class DvarManager {
 public:
 	/*! \brief Creates a new dvar manager and loads the file \a file.
 	 \param file The file which it will read and save the dvars too.
 	 */
-	dvarManager(std::string file);
-	~dvarManager();
+	DvarManager(std::string file);
+	~DvarManager();
 
 	/*! \brief Registers a new dvar or updates the description, flags and default value.
 	 \param var The new dvar.
 	 \return The registered dvar.
 	 */
-	dvar * registerDvar(dvar * var);
+	Dvar * RegisterDvar(Dvar * var);
 	/*! \brief Removes the dvar named \a name.
 	 \param name The dvar name.
 	 */
-	void removeDvar(std::string name);
+	void RemoveDvar(std::string name);
 	/*! \brief Gets the dvar named \a name
 	 \param name The dvar name.
 	 \return The dvar or NULL if it couldn't find it.
 	 */
-	dvar * getDvar(std::string name);
+	Dvar * GetDvar(std::string name);
 
 private:
-	std::map<std::string, dvar *> * dvarList;
-	std::string file;
+	std::map<std::string, Dvar *> * DvarList;
+	std::string File;
 
-	void load(std::string file);
-	void save(std::string file);
-	dvar * registerDvar(dvar * var, bool load);
+	void Load(std::string file);
+	void Save(std::string file);
+	Dvar * RegisterDvar(Dvar * var, bool load);
 };
 
 #endif /* DVARMANAGER_H_ */
