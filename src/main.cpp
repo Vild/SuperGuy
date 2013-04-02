@@ -15,7 +15,7 @@ int main(int argc, char ** argv) {
 	try {
 		EngineInstance = new Engine();
 
-		SDL_Delay(5 * 1000);
+		EngineInstance->Run();
 
 		delete EngineInstance;
 	} catch (std::exception * e) {

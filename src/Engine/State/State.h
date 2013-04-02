@@ -14,8 +14,8 @@ public:
 	State();
 	virtual ~State();
 	virtual void OnEvent(SDL_Event event);
-	virtual void OnUpdate();
-	virtual SDL_Texture * OnRender();
+	virtual void OnUpdate(double delta);
+	virtual SDL_Texture * OnRender(SDL_Renderer * renderer);
 };
 
 #endif /* STATE_H_ */

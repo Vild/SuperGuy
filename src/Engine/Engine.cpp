@@ -57,6 +57,7 @@ Engine::Engine() {
 	Cheats = DvarMgr->RegisterDvar(
 			new Dvar("cheats", "Enables cheats", DVAR_FLAG_ARCHIVED, true));
 	Log::Info("Initialized SuperGuy successfully!");
+	this->CurrentState = NULL;
 }
 
 Engine::~Engine() {
@@ -67,4 +68,31 @@ Engine::~Engine() {
 		SDL_DestroyWindow(Window);
 	SDL_Quit();
 	Log::Info("Shutting down SuperGuy, Bye!");
+}
+
+void Engine::Run() {
+	bool quit = false;
+	SDL_Event event;
+	double delta = 1.0;
+
+	while (!quit) {
+		while (SDL_PollEvent(&event)) {
+			if (event.type == SDL_QUIT
+					|| (event.type == SDL_KEYDOWN
+							&& event.key.keysym.sym == SDLK_ESCAPE))
+				quit = true;
+
+			if (this->CurrentState)
+				this->CurrentState->OnEvent(event);
+		}
+		if (this->CurrentState)
+			this->CurrentState->OnUpdate(delta);
+
+		SDL_RenderClear(this->Renderer);
+
+		if (this->CurrentState)
+			this->CurrentState->OnRender(this->Renderer);
+
+		SDL_RenderPresent(this->Renderer);
+	}
 }

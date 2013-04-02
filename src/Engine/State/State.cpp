@@ -19,10 +19,10 @@ void State::OnEvent(SDL_Event event) {
 
 }
 
-void State::OnUpdate() {
+void State::OnUpdate(double delta) {
 
 }
 
-SDL_Texture * State::OnRender() {
+SDL_Texture * State::OnRender(SDL_Renderer * renderer) {
 	return NULL;
 }
