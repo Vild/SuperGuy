@@ -2,7 +2,7 @@
  * Name        : Engine.cpp
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : GPLv2, i think
- * Description : 
+ * Description : Game engine class
  * ============================================================================ */
 
 #include <iostream>
@@ -95,4 +95,8 @@ void Engine::Run() {
 
 		SDL_RenderPresent(this->Renderer);
 	}
+}
+
+DvarManager * Engine::GetDvarMgr() {
+	return this->DvarMgr;
 }

@@ -27,6 +27,8 @@ inline Dvar_flag_t operator|(Dvar_flag_t a, Dvar_flag_t b) {
 
 typedef boost::variant<int64_t, std::string, double, bool> Dvar_value_t;
 
+/*! \brief Class for the dvars
+ */
 class Dvar {
 public:
 	/*! \brief Makes a new dvar with the type of a integer.

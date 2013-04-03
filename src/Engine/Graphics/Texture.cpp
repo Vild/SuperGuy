@@ -1,8 +1,8 @@
 /* ============================================================================
  * Name        : Texture.cpp
  * Author(s)   : Dan "WildN00b" Printzell
- * Copyright   : GPLv2, i think
- * Description : 
+ * Copyright   : FreeBSD
+ * Description : Texture class
  * ============================================================================ */
 
 #include "Texture.h"

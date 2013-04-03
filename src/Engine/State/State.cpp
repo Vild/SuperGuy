@@ -2,7 +2,7 @@
  * Name        : State.cpp
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : FreeBSD
- * Description : 
+ * Description : State class
  * ============================================================================ */
 
 #include "State.h"

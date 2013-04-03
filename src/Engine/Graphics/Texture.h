@@ -1,8 +1,8 @@
 /* ============================================================================
  * Name        : Texture.h
  * Author(s)   : Dan "WildN00b" Printzell
- * Copyright   : GPLv2, i think
- * Description : 
+ * Copyright   : FreeBSD
+ * Description : Texture class
  * ============================================================================ */
 
 #ifndef TEXTURE_H_
@@ -10,6 +10,8 @@
 
 #include <SDL2/SDL.h>
 
+/*! \brief Texture class
+ */
 class Texture {
 public:
 	/*! \brief Makes a new texture of the file \a file and it has \a count of sprites.

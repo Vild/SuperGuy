@@ -9,6 +9,8 @@
 #include "../../Log.h"
 #include "../Engine.h"
 
+extern Engine * EngineInstance;
+
 // The constructors for the dvar, does the same for each one, sets the name, descriptions, flags, value and default value.
 Dvar::Dvar(std::string name, std::string desc, Dvar_flag_t flags, int64_t Int) {
 	this->Name = name;
@@ -83,7 +85,7 @@ void Dvar::SetDefValue(Dvar_value_t defValue) {
 
 Dvar_flag_t Dvar::SetValue(Dvar_value_t value) {
 	bool cheat = false;
-	Dvar * cheats = EngineInstance->DvarMgr->GetDvar("cheats");
+	Dvar * cheats = EngineInstance->GetDvarMgr()->GetDvar("cheats");
 	if (cheats)
 		cheat = boost::get<bool>(cheats->GetValue());
 

@@ -2,7 +2,7 @@
  * Name        : DvarManager.h
  * Author(s)   : Dan "WildN00b" Printzell
  * Copyright   : FreeBSD
- * Description : A manager for dvars
+ * Description : A manager for the dvars
  * ============================================================================ */
 
 #ifndef DVARMANAGER_H_
@@ -12,6 +12,8 @@
 #include <map>
 #include <string>
 
+/*! \brief A manager for the dvars
+ */
 class DvarManager {
 public:
 	/*! \brief Creates a new dvar manager and loads the file \a file.

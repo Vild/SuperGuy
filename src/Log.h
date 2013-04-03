@@ -8,6 +8,8 @@
 #ifndef LOG_H_
 #define LOG_H_
 
+/*! \brief Logging class
+ */
 class Log {
 
 public:
