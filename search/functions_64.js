@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dvar',['dvar',['../classdvar.html#a416153f76f70f791709f98ca33427d8a',1,'dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, int64_t Int)'],['../classdvar.html#aaeff4acd01a01a69cff484e68867a48d',1,'dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, std::string String)'],['../classdvar.html#aef505fca4161968cf17b69bd4abd1eda',1,'dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, double Double)'],['../classdvar.html#a4541b6aea34dad49441080b799997c70',1,'dvar::dvar(std::string name, std::string desc, dvar_flag_t flags, bool Bool)']]],
-  ['dvarmanager',['dvarManager',['../classdvarManager.html#aa57d2d6ee5a85fc73ab4997f4b14a6e9',1,'dvarManager']]]
+  ['dvar',['Dvar',['../classDvar.html#a4c6d92e8d14b4135e2fdebc3c6633395',1,'Dvar::Dvar(std::string name, std::string desc, Dvar_flag_t flags, int64_t Int)'],['../classDvar.html#a600aaea9426889f2aab3f996c1f209a0',1,'Dvar::Dvar(std::string name, std::string desc, Dvar_flag_t flags, std::string String)'],['../classDvar.html#a5a6f18f6f3b8f5def80eb0ef8f707ff1',1,'Dvar::Dvar(std::string name, std::string desc, Dvar_flag_t flags, double Double)'],['../classDvar.html#aab6d335d8bf64c96995f6f920e5a1260',1,'Dvar::Dvar(std::string name, std::string desc, Dvar_flag_t flags, bool Bool)']]],
+  ['dvarmanager',['DvarManager',['../classDvarManager.html#a058cb3ab40d15170e48760101df454e2',1,'DvarManager']]]
 ];

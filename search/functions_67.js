@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['getdefvalue',['getDefValue',['../classdvar.html#a8254f32e9b4584de927129f2638f4cd5',1,'dvar']]],
-  ['getdesc',['getDesc',['../classdvar.html#af088a6342e17df5bfa882ba245b5182d',1,'dvar']]],
-  ['getdvar',['getDvar',['../classdvarManager.html#adef25895ede1def129af8f1b75dcfc86',1,'dvarManager']]],
-  ['getflags',['getFlags',['../classdvar.html#a27ebbd28757e99a1ee40b399e04d9b6b',1,'dvar']]],
-  ['getname',['getName',['../classdvar.html#a1b36c18cbd1703093c0c52096c0aef99',1,'dvar']]],
-  ['gettexture',['getTexture',['../classtexture.html#ac5ee5635e548e3939f79fd6e596221d3',1,'texture']]],
-  ['gettextureatpos',['getTextureAtPos',['../classtexture.html#ab5a6671d4f348d5e62eedd2c4519c5dd',1,'texture']]],
-  ['getvalue',['getValue',['../classdvar.html#a8b8b447cd923a5b4aac1fcc1631fa4ab',1,'dvar']]]
+  ['getdefvalue',['GetDefValue',['../classDvar.html#a8027fbb54f7b79fd0dc76a5b7823e239',1,'Dvar']]],
+  ['getdesc',['GetDesc',['../classDvar.html#a36942688f36ed9606578c08e72ff0dbc',1,'Dvar']]],
+  ['getdvar',['GetDvar',['../classDvarManager.html#ae3127e3dacd016b6f41d3185b24f1cec',1,'DvarManager']]],
+  ['getdvarmgr',['GetDvarMgr',['../classEngine.html#af846166d59658fed65e2144edefbb63a',1,'Engine']]],
+  ['getflags',['GetFlags',['../classDvar.html#a1fc357610b6eaf760bd0e374a8073d87',1,'Dvar']]],
+  ['getname',['GetName',['../classDvar.html#a0101427a7ed0c997fc7bd765625e62ed',1,'Dvar']]],
+  ['gettexture',['GetTexture',['../classTexture.html#a5907319e475a7441dfbbb15dd962188b',1,'Texture']]],
+  ['gettextureatpos',['GetTextureAtPos',['../classTexture.html#a25d2129d142b09c51217a972ebf14e96',1,'Texture']]],
+  ['getvalue',['GetValue',['../classDvar.html#a71a5abae83beabbd0d58ba51bfb8a03a',1,'Dvar']]]
 ];

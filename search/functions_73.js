@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['setdefvalue',['setDefValue',['../classdvar.html#a7cbced87f4217b4139f0e54712a486f8',1,'dvar']]],
-  ['setdesc',['setDesc',['../classdvar.html#aa930d43b56efe8bd658f504db2ce44f7',1,'dvar']]],
-  ['setflags',['setFlags',['../classdvar.html#a2ae1c8e19e5cdac48049d18878d0c349',1,'dvar']]],
-  ['setvalue',['setValue',['../classdvar.html#aa12fac52e759541825c02079eec12d26',1,'dvar']]]
+  ['setdefvalue',['SetDefValue',['../classDvar.html#a4157795d4c718d68ba1a2391c0680aaf',1,'Dvar']]],
+  ['setdesc',['SetDesc',['../classDvar.html#a8f0f1e40d1d241bf0395142eaacea178',1,'Dvar']]],
+  ['setflags',['SetFlags',['../classDvar.html#a3596f22c0dec2fcd7584cba79346bc62',1,'Dvar']]],
+  ['setvalue',['SetValue',['../classDvar.html#a69ce6ba326c104b16bd0fccd829b296f',1,'Dvar']]],
+  ['state',['State',['../classState.html#ab91bb1dd5aa6260ab2a456581daf9ec2',1,'State']]]
 ];

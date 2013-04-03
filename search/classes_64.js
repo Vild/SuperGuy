@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dvar',['dvar',['../classdvar.html',1,'']]],
-  ['dvarmanager',['dvarManager',['../classdvarManager.html',1,'']]]
+  ['dvar',['Dvar',['../classDvar.html',1,'']]],
+  ['dvarmanager',['DvarManager',['../classDvarManager.html',1,'']]]
 ];

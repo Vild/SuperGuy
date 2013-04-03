@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state',['state',['../classstate.html',1,'']]]
+  ['state',['State',['../classState.html',1,'']]]
 ];

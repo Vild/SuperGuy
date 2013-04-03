@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['texture',['texture',['../classtexture.html',1,'texture'],['../classtexture.html#a8dd00d9a5b53b82421efd40d1471f877',1,'texture::texture()']]],
-  ['titlestage',['titleStage',['../classtitleStage.html',1,'']]]
+  ['texture',['Texture',['../classTexture.html',1,'Texture'],['../classTexture.html#ad89991d9fbcb3424c31f8fac514bf287',1,'Texture::Texture()']]]
 ];
