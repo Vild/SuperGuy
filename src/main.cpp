@@ -5,27 +5,25 @@
  * Description : 
  * ============================================================================ */
 
-#include <iostream>
 #include <SDL2/SDL.h>
-#include "log.h"
-#include "engine/engine.h"
+#include "Log.h"
+#include "Engine/Engine.h"
 
 int main(int argc, char ** argv) {
-	engine * eng = NULL;
-	log::open("log.txt");
+	Log::Open("log.txt");
 
 	try {
-		eng = new engine();
+		EngineInstance = new Engine();
 
-		SDL_Delay(5 * 1000);
+		EngineInstance->Run();
 
-		delete eng;
+		delete EngineInstance;
 	} catch (std::exception * e) {
-		if (eng)
-			delete eng;
-		log::error("Engine crashed!");
+		if (EngineInstance) // Checks if eng isn't NULL
+			delete EngineInstance;
+		Log::Error("Engine crashed!");
 	}
 
-	log::close();
+	Log::Close();
 	return 0;
 }
