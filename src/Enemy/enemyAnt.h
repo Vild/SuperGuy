@@ -8,7 +8,7 @@
 #ifndef ENEMY_ANT_H_
 #define ENEMY_ANT_H_
 
-class enemyAnt: private aiEntity
+class enemyAnt: public aiEntity
 
 {
 public:

@@ -8,7 +8,7 @@
 #ifndef ENEMY_DUCK_H_
 #define ENEMY_DUCK_H_
 
-class enemyDuck: private aiEntity {
+class enemyDuck: public aiEntity {
 public:
 	enemyDuck();
 	~enemyDuck();
