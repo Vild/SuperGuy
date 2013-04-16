@@ -14,6 +14,7 @@ class enemyAnt: public aiEntity
 public:
 	enemyAnt();
 	enemyAnt(int _x, int _y, int _w, int _h);
+	enemyAnt(int _x, int _y, int _w, int _h, int _speedX, int _speedY);
 	~enemyAnt();
 	void destroyMe();
 
