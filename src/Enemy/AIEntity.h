@@ -10,7 +10,7 @@
 
 class aiEntity {
 public:
-	SDL_Rect *entity;
+	SDL_Rect entity;
 	int speedX;
 	int speedY;
 	float alpha;

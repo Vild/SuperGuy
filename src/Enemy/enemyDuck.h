@@ -11,6 +11,7 @@
 class enemyDuck: public aiEntity {
 public:
 	enemyDuck();
+	enemyDuck(int _x, int _y, int _w, int _h);
 	~enemyDuck();
 	void destroyMe();
 

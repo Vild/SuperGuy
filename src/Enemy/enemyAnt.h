@@ -13,6 +13,7 @@ class enemyAnt: public aiEntity
 {
 public:
 	enemyAnt();
+	enemyAnt(int _x, int _y, int _w, int _h);
 	~enemyAnt();
 	void destroyMe();
 
